@@ -1,0 +1,19 @@
+{
+    "name": "netsells/contactformme",
+    "autoload": {
+        "psr-4": {
+            "Netsells\\ContactFormMe\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "~5.3|~6.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Netsells\\ContactFormMe\\Tests\\": "tests/"
+        }
+    }
+}
