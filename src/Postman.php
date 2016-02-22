@@ -3,6 +3,7 @@
 namespace Netsells\ContactFormMe;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 class Postman
 {
@@ -19,15 +20,22 @@ class Postman
 
     public function deliver($data = [])
     {
-        $response = $this->client->post($this->postUrl, [
-            'form_params' => $this->formatFormData($data),
-        ]);
+        try {
+            $response = $this->client->post($this->postUrl(), [
+                'form_params' => $this->formatFormData($data),
+            ]);
+        } catch (ClientException $e) {
+            throw new PostmanException((string) $e->getResponse()->getBody());
+        }
+    }
 
-        if ($response->getStatusCode() < 200 or $response->getStatusCode() >= 300) {
-            throw new PostmanException((string) $response->getBody());
+    private function postUrl()
+    {
+        if (!filter_var($this->postUrl, FILTER_VALIDATE_URL)) {
+            return "http://contactform.me/post/{$this->postUrl}";
         }
 
-        return true;
+        return $this->postUrl;
     }
 
     private function formatFormData($data = [])
