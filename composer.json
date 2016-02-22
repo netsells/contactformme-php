@@ -1,5 +1,12 @@
 {
     "name": "netsells/contactformme",
+    "authors": [
+        {
+            "name": "Sam Jordan",
+            "email": "sam@netsells.co.uk"
+        }
+    ],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Netsells\\ContactFormMe\\": "src/"
