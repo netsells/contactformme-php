@@ -32,7 +32,7 @@ class Postman
     private function postUrl()
     {
         if (!filter_var($this->postUrl, FILTER_VALIDATE_URL)) {
-            return "http://contactform.me/post/{$this->postUrl}";
+            return "https://contactform.me/post/{$this->postUrl}";
         }
 
         return $this->postUrl;
