@@ -1,5 +1,8 @@
 # ContactForm.me PHP Wrapper
+
 A wrapper round the contactform.me service
+
+It is created and maintained by the [Netsells team](https://netsells.co.uk/)
 
 ## Usage
 
